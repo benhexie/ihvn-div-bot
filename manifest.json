@@ -1,0 +1,32 @@
+{
+    "name": "Div Bot",
+    "version": "1.0.0",
+    "description": "Gets your dividends into a spreadsheet.",
+    "manifest_version": 3,
+    "author": "Gabriel Benedict",
+    "permissions": ["tabs"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://ihvn.surethrift.com/control/rec_savings"],
+            "js": [
+                "scripts/XLSX.js",
+                "scripts/content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "matches": ["<all_urls>"],
+            "resources": [
+                "assets/images/logo.png"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Div Bot"
+    }
+}
